@@ -1,0 +1,45 @@
+{
+  "name": "krypt",
+  "version": "0.1.0",
+  "description": "Simple, secure symmetric encryption utility for Node.",
+  "main": "index.js",
+  "bin": {
+    "krypt": "./index.js"
+  },
+  "scripts": {
+    "test": "./node-modules/.bin/grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mmoulton/krypt.git"
+  },
+  "keywords": [
+    "crypto"
+  ],
+  "author": "Mike Moulton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmoulton/krypt/issues"
+  },
+  "homepage": "https://github.com/mmoulton/krypt",
+  "dependencies": {
+    "nconf": "~0.6.9"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "grunt": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-mocha-cov": "*",
+    "mocha-term-cov-reporter": "*",
+    "grunt-cli": "*",
+    "grunt-shell": "*"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        "krypt/lib",
+        "krypt/index"
+      ]
+    }
+  }
+}
