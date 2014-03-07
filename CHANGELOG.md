@@ -10,3 +10,7 @@
 ## 0.2.1 (3/7/2014)
 
 + Fixed module export
+
+## 0.2.2 (3/7/2014)
+
++ Fixed typo in payload
