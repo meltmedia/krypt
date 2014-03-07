@@ -47,6 +47,6 @@ Krypt tries to incorporate all the current encryption best practices into a simp
 
 + AES 256
 + CBC
-+ Key Stretching w/ PBKDF2
++ Key Stretching w/ PBKDF2 @ 64,000 iterations
 + Random IV / encrypted value
 + Random salt / encrypted value

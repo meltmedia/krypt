@@ -1,6 +1,6 @@
 {
   "name": "krypt",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Simple, secure symmetric encryption utility for Node.",
   "main": "index.js",
   "bin": {

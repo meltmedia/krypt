@@ -20,9 +20,46 @@ function main() {
   var nconf = require('nconf');
 
   // Load command line options
-  nconf.argv();
+  nconf
+    .argv({
+      'encrypt': {
+        short: 'e',
+        describe: 'Path of file to encrypt'
+      },
+      'decrypt': {
+        short: 'd',
+        describe: 'Path of file to decrypt'
+      },
+      'secret': {
+        short: 's',
+        describe: 'Secret used to encrypt/decrypt file',
+        demand: true
+      },
+      'iterations': {
+        short: 'i',
+        describe: 'Iterations to use for key stretching',
+        default: 64000
+      },
+      'length': {
+        short: 'l',
+        describe: 'Length of the key to use in Bytes',
+        default: 32
+      },
+      'out': {
+        short: 'o',
+        describe: 'File location to write result to'
+      }
+    });
 
   var secret = nconf.get('secret');
+
+  if (nconf.get('iterations')) {
+    krypt.setIterations(nconf.get('iterations'));
+  }
+
+  if (nconf.get('length')) {
+    krypt.setKeyLength(nconf.get('length'));
+  }
 
   if (nconf.get('encrypt')) {
 
