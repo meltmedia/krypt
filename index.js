@@ -12,6 +12,9 @@ var fs = require('fs'),
     krypt = require('./lib/krypt');
 
 
+module.exports = krypt;
+
+
 /**
  * CLI
  */
@@ -106,6 +109,4 @@ function main() {
 // If run from the command line, start application
 if (require.main === module) {
   main();
-} else {
-  return krypt;
 }
