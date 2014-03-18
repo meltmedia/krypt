@@ -22,5 +22,5 @@
   "browser" : false,
   "devel" : false,
   "white" : true,
-  "maxcomplexity" : 12
+  "maxcomplexity" : 15
 }

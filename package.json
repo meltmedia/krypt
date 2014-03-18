@@ -1,6 +1,6 @@
 {
   "name": "krypt",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Simple, secure symmetric encryption utility for Node.",
   "main": "index.js",
   "bin": {
@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/mmoulton/krypt",
   "dependencies": {
-    "nconf": "~0.6.9"
+    "nconf": "~0.6.9",
+    "lodash": "~2.4.1"
   },
   "devDependencies": {
     "chai": "*",
