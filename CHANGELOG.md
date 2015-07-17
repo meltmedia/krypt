@@ -20,3 +20,9 @@
 + Updated `keyLength` to be expressed in bits (w/ legacy support for converting 32 Byte length keys)
 + Added support to inject custom context into the encrypted result
   + Useful for recording metadata, such as the name of the key you are using, etc.
+
+## 0.4.0 (7/17/2015)
+
++ Support async encryption / decryption thanks to Spencer Rinehart (@nubs)
+  + Introduction of explicit `encryptSync`, `encryptAsync` and `decryptSync` and `decryptAsync` methods.
+  + `encrypt` and `decrypt` will automatically choose async or sync based on the presence of a callback.

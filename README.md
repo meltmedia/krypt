@@ -30,7 +30,11 @@ krypt --decrypt ./path/to/new/encrypted.out --secret someSecretValue --out ./pat
 ```
 var krypt = require('krypt');
 
-var encrypted = krypt.encrypt('Input Value', 'someSecretValue');
+var encryptedSync = krypt.encrypt('Input Value', 'someSecretValue');
+
+krypt.encrypt(encrypted, 'someSecretValue', function (err, encryptedAsync) {
+  // async encrypt
+});
 ```
 
 ### Decryption
@@ -38,15 +42,19 @@ var encrypted = krypt.encrypt('Input Value', 'someSecretValue');
 ```
 var krypt = require('krypt');
 
-var plainText = krypt.decrypt(encrypted, 'someSecretValue');
+var plainTextSync = krypt.decrypt(encrypted, 'someSecretValue');
+
+krypt.decrypt(encrypted, 'someSecretValue', function (err, plainTextAsync) {
+  // async decrypt
+});
 ```
 
 ## Algorithms
 
-Krypt tries to incorporate all the current encryption best practices into a simple to use module. As such, Krypt uses the following:
+Krypt tries to incorporate current encryption best practices into a simple to use module. As such, Krypt uses the following:
 
 + AES 256
 + CBC
-+ Key Stretching w/ PBKDF2 @ 64,000 iterations
++ Key Stretching w/ PBKDF2 @ 64,000 iterations (default)
 + Random IV / encrypted value
 + Random salt / encrypted value
