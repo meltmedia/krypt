@@ -43,6 +43,11 @@ function main() {
         describe: 'Iterations to use for key stretching',
         default: 64000
       },
+      'digest': {
+        short: 'd',
+        describe: 'HMAC digest algorithm to use for deriving the key',
+        default: 'sha512'
+      },
       'length': {
         short: 'l',
         describe: 'Length of the key to use in Bytes',
