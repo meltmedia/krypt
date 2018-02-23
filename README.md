@@ -58,3 +58,4 @@ Krypt tries to incorporate current encryption best practices into a simple to us
 + Key Stretching w/ PBKDF2 @ 64,000 iterations (default)
 + Random IV / encrypted value
 + Random salt / encrypted value
++ sha512 digest

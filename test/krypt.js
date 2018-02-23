@@ -14,6 +14,7 @@ describe('Krypt', function () {
       var encrypted = krypt.encryptSync(PLAIN_TEXT, SECRET);
       expect(encrypted).to.have.property('iv');
       expect(encrypted).to.have.property('salt');
+      expect(encrypted).to.have.property('digest');
       expect(encrypted).to.have.property('value');
       done();
 
@@ -24,6 +25,7 @@ describe('Krypt', function () {
       var encrypted = krypt.encryptSync(PLAIN_TEXT, SECRET),
           decrypted = krypt.decryptSync(encrypted, SECRET);
 
+      expect(encrypted.digest).to.equal(krypt.DEFAULT_DIGEST);
       expect(decrypted).to.deep.equal(PLAIN_TEXT);
       done();
 
@@ -33,6 +35,27 @@ describe('Krypt', function () {
 
       var encrypted = krypt.encryptSync(PLAIN_TEXT, SECRET),
           decrypted = krypt.decryptSync(JSON.stringify(encrypted), SECRET);
+
+      expect(decrypted).to.deep.equal(PLAIN_TEXT);
+      done();
+
+    });
+
+    it('should successfuly decrypt with the deprecated default digest', function (done) {
+      // Change to deprecated default
+      krypt.setDigest(krypt.DEFAULT_DEPRECATED_DIGEST);
+
+      var encrypted = krypt.encryptSync(PLAIN_TEXT, SECRET);
+
+      // Test and Remove the digest to ensure backwards compatibility
+      expect(encrypted.digest).to.equal(krypt.DEFAULT_DEPRECATED_DIGEST);
+      delete encrypted.digest;
+      expect(encrypted.digest).to.not.exist;
+
+      // Reset to the updated default digest
+      krypt.setDigest(krypt.DEFAULT_DIGEST);
+
+      var decrypted = krypt.decryptSync(JSON.stringify(encrypted), SECRET);
 
       expect(decrypted).to.deep.equal(PLAIN_TEXT);
       done();
@@ -139,6 +162,24 @@ describe('Krypt', function () {
       var encrypted = krypt.encryptSync(PLAIN_TEXT, SECRET);
 
       krypt.decryptAsync(JSON.stringify(encrypted), SECRET, function(err, decrypted) {
+        expect(err).to.be.null;
+        expect(decrypted).to.deep.equal(PLAIN_TEXT);
+        done();
+      });
+
+    });
+
+    it('should successfuly decrypt a JSON value with the deprecated default digest', function (done) {
+      krypt.setDigest(krypt.DEFAULT_DEPRECATED_DIGEST);
+
+      var encrypted = krypt.encryptSync(PLAIN_TEXT, SECRET);
+
+      // Test and Remove the digest to ensure backwards compatibility
+      expect(encrypted.digest).to.equal(krypt.DEFAULT_DEPRECATED_DIGEST);
+      delete encrypted.digest;
+      expect(encrypted.digest).to.not.exist;
+
+      krypt.decryptAsync(encrypted, SECRET, function(err, decrypted) {
         expect(err).to.be.null;
         expect(decrypted).to.deep.equal(PLAIN_TEXT);
         done();
