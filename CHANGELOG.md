@@ -4,7 +4,7 @@
 
 ## 0.2.0 (3/7/2014)
 
-+ Updated defaults for key lenght / stretching iterations
++ Updated defaults for key length / stretching iterations
 + Enhanced the output to be portable across future versions of Krypt
 
 ## 0.2.1 (3/7/2014)
@@ -26,3 +26,11 @@
 + Support async encryption / decryption thanks to Spencer Rinehart (@nubs)
   + Introduction of explicit `encryptSync`, `encryptAsync` and `decryptSync` and `decryptAsync` methods.
   + `encrypt` and `decrypt` will automatically choose async or sync based on the presence of a callback.
+
+## 0.5.0 (2/25/2018)
+
++ Support for Node 6+
++ Added support for configuring the digest
++ Updated defaults
+  + sha512
+  + 128,000 iterations
