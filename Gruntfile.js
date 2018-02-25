@@ -16,16 +16,10 @@ module.exports = function (grunt) {
       ]
     },
 
-    mochacov: {
+    mochacli: {
       unit: {
         options: {
           reporter: 'spec'
-        }
-      },
-      coverage: {
-        options: {
-          reporter: 'mocha-term-cov-reporter',
-          coverage: true
         }
       },
       options: {
@@ -37,11 +31,11 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.loadNpmTasks('grunt-mocha-cov');
+  grunt.loadNpmTasks('grunt-mocha-cli');
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
-  grunt.registerTask('test', ['jshint', 'mochacov:unit', 'mochacov:coverage']);
-  grunt.registerTask('travis', ['jshint', 'mochacov:unit', 'mochacov:coverage']);
+  grunt.registerTask('test', ['jshint', 'mochacli:unit']);
+  grunt.registerTask('travis', ['jshint', 'mochacli:unit']);
   grunt.registerTask('default', 'test');
 
 };
