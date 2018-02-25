@@ -30,6 +30,7 @@
 ## 0.5.0 (2/25/2018)
 
 + Support for Node 6+
++ Dropping official support for Node 0.12
 + Added support for configuring the digest
 + Updated defaults
   + sha512
