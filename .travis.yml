@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-  - 'node'
   - '0.12'
   - '4'
   - '6'
+  - '8'
 script: './node_modules/.bin/grunt travis'

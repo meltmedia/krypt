@@ -7,11 +7,11 @@
     "krypt": "./index.js"
   },
   "scripts": {
-    "test": "./node-modules/.bin/grunt test"
+    "test": "node_modules/.bin/grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mmoulton/krypt.git"
+    "url": "git://github.com/meltmedia/krypt.git"
   },
   "keywords": [
     "crypto"
@@ -19,9 +19,9 @@
   "author": "Mike Moulton",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mmoulton/krypt/issues"
+    "url": "https://github.com/meltmedia/krypt/issues"
   },
-  "homepage": "https://github.com/mmoulton/krypt",
+  "homepage": "https://github.com/meltmedia/krypt",
   "dependencies": {
     "nconf": "~0.7.1",
     "lodash": "~3.10.0"
